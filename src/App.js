@@ -10,7 +10,6 @@ import Header from "./components/Header";
 
 var firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-  //apiKey: "AIzaSyB3K_F2lXSfMpBXgguZ-MtqFLEqQikJBRo",
   authDomain: "exercise-5-31fa5.firebaseapp.com",
   projectId: "exercise-5-31fa5",
   storageBucket: "exercise-5-31fa5.appspot.com",
