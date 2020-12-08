@@ -20,14 +20,24 @@ var firebaseConfig = {
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-  // const [userInformation, setUserInformation] = useState({});
+  const [userInformation, setUserInformation] = useState({});
   useEffect(() => {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
       console.log("Initialized app");
     }
   }, [firebaseConfig]);
-
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        setUserInformation(user);
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+      setLoading(false);
+    });
+  }, []);
   //Function for logging in
   function LoginFunction(e) {
     e.preventDefault();
@@ -52,6 +62,7 @@ function App() {
       .signOut()
       .then(function () {
         setLoggedIn(false);
+        setUserInformation({});
       })
       .catch(function (error) {
         console.log("Logout", error);
@@ -74,17 +85,7 @@ function App() {
       });
   }
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        setLoggedIn(true);
-      } else {
-        setLoggedIn(false);
-      }
-      setLoading(false);
-    });
-  }, []);
-  console.log("Userloggedin", loggedIn);
+  console.log("User", userInformation);
   if (loading) return null;
   return (
     <div className="App">
@@ -105,7 +106,11 @@ function App() {
           )}
         </Route>
         <Route exact path="/">
-          {!loggedIn ? <Redirect to="/login" /> : <UserProfile />}
+          {!loggedIn ? (
+            <Redirect to="/login" />
+          ) : (
+            <UserProfile userInformation={userInformation} />
+          )}
         </Route>
       </Router>
     </div>

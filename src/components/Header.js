@@ -2,11 +2,11 @@ import React from "react";
 
 function Header({ loggedIn, LogoutFunction }) {
   return (
-    <header>
+    <header className="Header">
       <nav>
         {loggedIn ? (
           <>
-            <a href="/">Home</a>
+            <a href="/">User Profile</a>
             <a onClick={() => LogoutFunction()}>Logout</a>
           </>
         ) : (

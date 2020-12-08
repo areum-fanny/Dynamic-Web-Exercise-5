@@ -1,15 +1,15 @@
 import React from "react";
 
-function LoginForm({LoginFunction}){
-    return (
-        <form className="LoginForm" onSubmit={(e) => LoginFunction(e)}>
-            <label htmlFor="loginEmail">Email</label>
-            <input type="email" name="loginEmail"/>
-            <label htmlFor="loginPassword">Password</label>
-            <input type="password" name="loginPassword"/>
-            <button type="submit">Submit</button>
-        </form>
-    );
+function LoginForm({ LoginFunction }) {
+  return (
+    <form className="LoginForm" onSubmit={(e) => LoginFunction(e)}>
+      <label htmlFor="loginEmail">Email</label>
+      <input type="email" name="loginEmail" />
+      <label htmlFor="loginPassword">Password</label>
+      <input type="password" name="loginPassword" />
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
 
 export default LoginForm;
