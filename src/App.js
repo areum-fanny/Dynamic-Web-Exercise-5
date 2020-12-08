@@ -24,7 +24,6 @@ function App() {
   useEffect(() => {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
-      console.log("Initialized app");
     }
   }, [firebaseConfig]);
   useEffect(() => {
@@ -48,7 +47,6 @@ function App() {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(function (response) {
-        console.log("LOGIN RESPONSE", response);
         setLoggedIn(true);
       })
       .catch(function (error) {
@@ -77,7 +75,6 @@ function App() {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(function (response) {
-        console.log("Account created", response);
         setLoggedIn(true);
       })
       .catch(function (error) {
@@ -85,7 +82,6 @@ function App() {
       });
   }
 
-  console.log("User", userInformation);
   if (loading) return null;
   return (
     <div className="App">
