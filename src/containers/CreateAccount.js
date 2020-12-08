@@ -1,11 +1,9 @@
 import React from "react";
 import CreateUserForm from "../components/CreateUserForm";
 
-function CreateAccount(){
+function CreateAccount({CreateAccountFunction}){
     return (
-        <div>
-            Hello
-        </div>
+        <CreateUserForm CreateAccountFunction={CreateAccountFunction} />
     );
 }
 

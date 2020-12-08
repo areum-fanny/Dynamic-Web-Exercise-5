@@ -1,11 +1,9 @@
 import React from "react";
 import LoginForm from "../components/LoginForm";
 
-function Login(){
+function Login({LoginFunction}){
     return (
-        <div>
-            Hello
-        </div>
+        <LoginForm LoginFunction={LoginFunction}/>
     );
 }
 
