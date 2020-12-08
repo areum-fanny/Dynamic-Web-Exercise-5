@@ -4,7 +4,7 @@ import UserProfileComponent from "../components/UserProfileComponent";
 function UserProfile(){
     return (
         <div>
-            Hello
+            UserProfile
         </div>
     );
 }
